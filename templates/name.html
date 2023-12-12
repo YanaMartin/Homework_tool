@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Pyladies homework submission</h1>
+<form method="post">
+  <label for="name">Pylady name:</label>
+  <br>
+  <input type="text" id="name" name="name" />
+  <br>
+  <br>
+  <label for="LessonNo">Lesson number:</label>
+  <br>
+  <input type="text" id="lessonno" name="lesson_number" />
+  <br>
+  <br>
+  <label for="URLColab">URL of colab:</label>
+  <br>
+  <input type="text" id="URLColab" name="URL_of_colab" />
+  <br>
+  <br>
+  <label for="comments">comments:</label>
+  <br>
+  <input type="text" id="comments" name="comments" />
+  <br>
+  <br>  
+  <input type="submit">
+</form>
+{% endblock %}
