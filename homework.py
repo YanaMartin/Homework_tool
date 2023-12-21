@@ -16,7 +16,7 @@ def submit_homework():
         comments = request.form['comments']
 
         return redirect('/thank-you')
-    return render_template('name.html', title='Homework submission', form=form)
+    return render_template('name.html')
 
 if __name__ == "__main__":
     app.run()
