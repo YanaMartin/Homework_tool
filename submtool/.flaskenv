@@ -1,0 +1,2 @@
+FLASK_APP=submissiontool.py
+FLASK_DEBUG=1
