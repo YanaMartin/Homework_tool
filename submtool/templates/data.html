@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>data</title>
+
+  </head>
+  <body>
+    
+{% for key,value in formdata.items() %}
+<p>data you submitted:</p>
+<h1> {{value}}</h1>
+<p> {{key}} </p>
+{% endfor %}

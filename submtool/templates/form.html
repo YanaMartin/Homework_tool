@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}">
+    <title>form</title>
+
+  </head>
+  <body>
+    <div class="boxout">
+        <div class="boxcol">
+            <div class="col">
+                <img src="{{ url_for('static',filename='who.png') }}" />
+
+                <p>homework submission</p>
+
+                <form action="/data" method = "POST">
+                <div>name</div>
+                <div>
+                    <input type = "text" name = "name" required/>
+                </div>
+                <div>from lesson</div>
+                <div>
+                    <input type = "text" required/>
+                </div>
+                <div>url</div>
+                <div>
+                    <input type = "text" required/>
+                </div>
+                <div>comment</div>
+                <div>
+                    <input tape = "text" />
+                </div>
+                <p><input type = "submit" value = "Submit" /></p>
+
+                </form>
+            </div>
+           </div>
+        </div>
+    </div>
+      
+    
+    
+    
+    </form>
+
+    </body>
+
+</html>
