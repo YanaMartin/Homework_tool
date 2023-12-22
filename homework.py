@@ -5,6 +5,9 @@ from config import Config
 app = Flask(__name__)
 app.config.from_object(Config)
 
+@app.route('/name')
+def hello():
+    return render_template('name.html')
 
 @app.route('/', methods=['GET', 'POST'])
 def submit_homework():

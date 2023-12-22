@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Homework</title>
+</head>
+<body>
+    <h1>Submitted Homework</h1>
+    <table border="1">
+        <tr>
+            <th>Timestamp</th>
+            <th>Name</th>
+            <th>Lesson Number</th>
+            <th>Colab URL</th>
+            <th>Comments</th>
+        </tr>
+        {% for row in homework %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
