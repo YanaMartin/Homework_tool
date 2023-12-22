@@ -7,35 +7,35 @@
 
   </head>
   <body>
-    <div class="boxout">
+    <div class="boxout" id="wrapper">
         <div class="boxcol">
-            <div class="col">
-                <img src="{{ url_for('static',filename='who.png') }}" />
 
-                <p>homework submission</p>
+                <h1>homework</h1>
 
-                <form action="/data" method = "POST">
+                <form autocomplete="off" action="/data" method = "POST">
                 <div>name</div>
                 <div>
-                    <input type = "text" name = "name"  required/>
+                    <input id = "input" type = "text" name = "name" required/>
                 </div>
                 <div>from lesson</div>
                 <div>
-                    <input type = "text" name="lesson_number"  required/>
+                    <input id = "input" type = "text" name="lesson_number" required/>
                 </div>
                 <div>url</div>
                 <div>
-                    <input type = "text" name="colab_url" required/>
+                    <input id = "input" type = "text" name="colab_url" required/>
                 </div>
                 <div>comment</div>
                 <div>
-                    <input tape = "text" name="comments" />
+                    <textarea id = "textarea" name="comments"></textarea>
                 </div>
-                <p><input type = "submit" value = "Submit" /></p>
+                <div>
+                    <input id = "button" type = "submit" value = "Submit" />
+                </div>
 
                 </form>
-            </div>
            </div>
+           <div class="boxcol"><img src="{{ url_for('static',filename='who.png') }}" /></div>
         </div>
     </div>
       

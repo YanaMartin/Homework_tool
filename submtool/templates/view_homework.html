@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>View Homework</title>
+<head lang="en" dir="ltr">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}">
+    <title>CSV data</title>
 </head>
 <body>
-    <h1>Submitted Homework</h1>
-    <table border="1">
-        <tr>
-            <th>Timestamp</th>
-            <th>Name</th>
-            <th>Lesson Number</th>
-            <th>Colab URL</th>
-            <th>Comments</th>
-        </tr>
-        {% for row in homework %}
-        <tr>
-            <td>{{ row[0] }}</td>
-            <td>{{ row[1] }}</td>
-            <td>{{ row[2] }}</td>
-            <td>{{ row[3] }}</td>
-            <td>{{ row[4] }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    <div class="boxout" id="wrapper">
+        <div class="boxcol">
+            <h1>submitted homeworks</h1>
+            <table class = "table">
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>#</th>
+                        <th>colab URL</th>
+                        <th>comments</th>
+                        <th>timestamp</th>
+                    </tr>
+                    {% for row in homework %}
+                    <tr>
+                        <td>{{ row[0] }}</td>
+                        <td>{{ row[1] }}</td>
+                        <td>{{ row[2] }}</td>
+                        <td>{{ row[3] }}</td>
+                        <td>{{ row[4] }}</td>
+                    </tr>
+                    {% endfor %}
+                </thead>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
