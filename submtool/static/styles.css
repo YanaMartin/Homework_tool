@@ -1,23 +1,27 @@
 body {
   background: #747474;
   font-family: "Roboto", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.8;
+  font-size: 1.4em;
+  line-height: 1.8em;
   font-weight: normal;
-  color: #5e5d5d; 
+  color: #5e5d5d;
+  max-width: 60em;
+  margin: 1em auto; 
 }
 
 h1{
   text-transform: uppercase;
-  border-bottom: 1px solid #fa143c;
+  border-bottom: 0.01em solid #fa143c;
+}
+
+img {
+  width: 10em;
 }
 
 .table {
-  border-collapse: collapse;
-  margin: 25px 0;
-  font-size: 0.9em;
+  width: 80%;
+  font-size: 0.8em;
   font-family: sans-serif;
-  min-width: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
   color: #5e5d5d;
@@ -30,14 +34,29 @@ h1{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f3f3f3;
-  margin: 50px 300px;
-  padding: 20px; 
-  border-radius: 5px;
+  background-color: #e9dddd;
+  margin: 2em 7em;
+  padding: 0.4em; 
+  border-radius: 0.2em;
+}
+
+.boxout-table {
+  clear: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e9dddd;
+  margin: 2em 7em;
+  padding: 0.4em; 
+  border-radius: 0.2em;
+  flex-direction: column;  
+
 }
 
 .boxcol {
-  margin: 1px 40px;
+  margin: 0.7em 3em;
+  max-width: 27rem;
+  float: right;
 }
 
 .table thead tr {
@@ -61,7 +80,7 @@ h1{
 }
 
 .table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
+  background-color: #bcbcbc;
 
 }
 
@@ -72,29 +91,33 @@ h1{
 
 .boxcol #button {
   background:#fa143c;
-  width: 100px;
-  height: 35px;
-  border-radius: 5px;
-  border: 1px;
-  padding: 5px;
-  color: #f3f3f3;
-  margin: 20px 0px;
+  width: 7em;
+  height: 2.5em;
+  border-radius: 0.2em;
+  border: 0.2em; 
+  color: #e9dddd;
+  margin: 0.8em 0em;
+  font-size: inherit;
 }
 
 .boxcol #input {
-  width: 300px;
-  height: 25px;
-  margin: 0px 5px 8px 0px;
-  border-radius: 5px;
-  border: 1px;  
+  width: 19em;
+  height: 1.5em;
+  margin: 0em 1em 0.7em 0em;
+  border-radius: 0.2em;
+  border: 0.2em; 
+  font-family: inherit;
+  font-size: inherit; 
 }
 
 .boxcol #textarea {
-  width: 300px;
-  height: 75px;
-  margin: 0 px 5px;
-  border-radius: 5px;
-  border: 1px;
+  width: 19em;
+  height: 5em;
+  margin: 0em 1em 0.5em 0em;
+  border-radius: 0.2em;
+  border: 0.2em; 
+  font-family:inherit;
+  font-size: inherit;
 
 }
 
@@ -110,3 +133,73 @@ textarea:focus {
   box-shadow: 0 0 5px #fa143c;
   
 }
+
+::placeholder {
+  color: #bcbcbc;
+  opacity: 1; /* Firefox */
+  font-style: italic;
+}
+
+@media (max-width: 30em) { 
+  body {
+    align-items: center;
+  }
+  .boxcol {
+    float: right;
+    margin: 2em 0em 0em 0em;
+    max-width: 100%;
+
+  }
+
+  img {
+    float: right;
+    margin: 0em 0em 0em 0em;
+
+  }
+
+  .boxcol #input {
+    width: 28em;
+    height: 2em;
+    margin: 0em 0em 2em 0em;
+    border-radius: 0.2em;
+    border: 0.2em; 
+    font-family: inherit;
+    font-size: inherit; 
+}
+
+  .boxcol #textarea {
+    width: 28em;
+    height: 4em;
+    margin: 0em 0em 0em 0em;
+    border-radius: 0.2em;
+    border: 0.2em; 
+    font-family:inherit;
+    font-size: inherit;
+
+  }
+
+  .boxout {
+    flex-direction: column-reverse;  
+    clear: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e9dddd;
+    margin: 1.5em;
+    padding: 0.5em; 
+    border-radius: 0.2em;
+  }
+
+  .boxcol #button {
+    width: 7em;
+    height: 2.5em;
+    border-radius: 0.2em;
+    border: 0.2em; 
+    color: #e9dddd;
+    margin: 2em 0em 4em;
+    font-size: inherit;
+  }
+  
+
+  }
+
