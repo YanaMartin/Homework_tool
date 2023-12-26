@@ -6,7 +6,7 @@
     <title>CSV data</title>
 </head>
 <body>
-    <div class="boxout-table" id="wrapper">
+    <div class="boxout-table">
         <h1>submitted homework</h1>
             <table class = "table">
                 <thead>
@@ -16,6 +16,7 @@
                         <th>colab URL</th>
                         <th>comments</th>
                         <th>timestamp</th>
+                        <th>checked by</th>
                     </tr>
                     {% for row in homework %}
                     <tr>
@@ -24,6 +25,7 @@
                         <td>{{ row[2] }}</td>
                         <td>{{ row[3] }}</td>
                         <td>{{ row[4] }}</td>
+                        <td><div><input id = "checked" type = "text" name = "checked" /></div></td>
                     </tr>
                     {% endfor %}
                 </thead>

@@ -1,7 +1,7 @@
 body {
   background: #747474;
   font-family: "Roboto", Arial, sans-serif;
-  font-size: 1.4em;
+  font-size: 1.1em;
   line-height: 1.8em;
   font-weight: normal;
   color: #5e5d5d;
@@ -11,7 +11,7 @@ body {
 
 h1{
   text-transform: uppercase;
-  border-bottom: 0.01em solid #fa143c;
+  border-bottom: 0.03em solid #fa143c;
 }
 
 img {
@@ -28,15 +28,14 @@ img {
   background-color: #ffffff;
 }
 
-
 .boxout {
   clear: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #e9dddd;
-  margin: 2em 7em;
-  padding: 0.4em; 
+  background-color: #e7e1e1;
+  margin: 2.5em 7em;
+  padding: 0.5em; 
   border-radius: 0.2em;
 }
 
@@ -45,17 +44,15 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #e9dddd;
+  background-color: #e7e1e1;
   margin: 2em 7em;
   padding: 0.4em; 
   border-radius: 0.2em;
   flex-direction: column;  
-
 }
 
 .boxcol {
-  margin: 0.7em 3em;
-  max-width: 27rem;
+  margin: 0.9em 2.5em;
   float: right;
 }
 
@@ -67,7 +64,6 @@ img {
   padding: 12px 15px;
   vertical-align: top;
   border-bottom: 1px solid #5e5d5d;
-
 }
 
 .table td {
@@ -81,12 +77,10 @@ img {
 
 .table tbody tr:nth-of-type(even) {
   background-color: #bcbcbc;
-
 }
 
 .table tbody tr:last-of-type {
   border-bottom: 2px solid #ffffff;
-
 }
 
 .boxcol #button {
@@ -95,13 +89,13 @@ img {
   height: 2.5em;
   border-radius: 0.2em;
   border: 0.2em; 
-  color: #e9dddd;
+  color: #e7e1e1;
   margin: 0.8em 0em;
   font-size: inherit;
 }
 
 .boxcol #input {
-  width: 19em;
+  width: 20.5em;
   height: 1.5em;
   margin: 0em 1em 0.7em 0em;
   border-radius: 0.2em;
@@ -111,54 +105,52 @@ img {
 }
 
 .boxcol #textarea {
-  width: 19em;
+  max-width: 20.5em;
+  width: 20.5em;
   height: 5em;
   margin: 0em 1em 0.5em 0em;
   border-radius: 0.2em;
   border: 0.2em; 
   font-family:inherit;
   font-size: inherit;
-
 }
 
 input:focus { 
   outline: none !important;
   border-color: #fa143c;
-  box-shadow: 0 0 5px #fa143c;
+  box-shadow: 0 0 0.2em #fa143c;
 }
 
 textarea:focus {
   outline: none !important; 
   border-color: #fa143c;
-  box-shadow: 0 0 5px #fa143c;
-  
+  box-shadow: 0 0 0.2em #fa143c;
 }
 
 ::placeholder {
   color: #bcbcbc;
-  opacity: 1; /* Firefox */
+  opacity: 1;
   font-style: italic;
 }
 
 @media (max-width: 70em) { 
   body {
     align-items: center;
+    font-size: 1.8em;
   }
 
   .boxout {
     flex-direction: column-reverse; 
-    width: 100%; 
     clear: none;
     justify-content: center;
     align-items: center;
-    background-color: #e9dddd;
-    margin: 2em;
-    padding: 0.5em; 
+    margin: 1em;
+    padding: 0.3em; 
     border-radius: 0.2em;
   }
 
   .boxcol {
-    width: 100%;
+    max-width: 100%;
     display: flex;
     margin: 0em;
     padding: 0em;
@@ -166,20 +158,16 @@ textarea:focus {
 
   .boxcol #input {
     width: 28em;
-    height: 2em;
-    border-radius: 0.2em;
-    margin: 0em;
-    border: 0.2em; 
+    height: 2em;    
     font-family: inherit;
     font-size: inherit; 
   }
 
   .boxcol #textarea {
     width: 28em;
-    height: 4em;
-    margin: 0em 0em 0em 0em;
-    border-radius: 0.2em;
-    border: 0.2em; 
+    max-width: 28em;
+    height: 5em;
+    margin: 0em;    
     font-family:inherit;
     font-size: inherit;
   }
@@ -189,11 +177,9 @@ textarea:focus {
     height: 2.5em;
     border-radius: 0.2em;
     border: 0.2em; 
-    color: #e9dddd;
     margin: 2em 0em 4em;
     font-size: inherit;
   }
   
-
 }
 

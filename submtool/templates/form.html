@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}">
-    <title>form</title>
+    <link rel="icon" type="image/x-icon" href= "{{ url_for('static',filename='who.ico.png') }}">
+    <title>homework submission - pyladies</title>
 
   </head>
   <body>
@@ -13,7 +14,7 @@
 
                 <h1>homework</h1>
 
-                <form autocomplete="off" action="/data" method = "POST">
+                <form autocomplete="off" action = "/data" method = "POST">
                 <div>name*</div>
                 <div>
                     <input id = "input" type = "text" name = "name" placeholder = "..." required/>

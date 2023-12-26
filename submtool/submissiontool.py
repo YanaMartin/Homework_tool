@@ -21,7 +21,7 @@ def write_to_csv(data):
 def hello():
     return render_template('form.html')
 
-@app.route('/data/', methods = ['POST', 'GET'])
+@app.route('/data', methods = ['POST', 'GET'])
 def data():
     if request.method == 'GET':
         return render_template('form.html')
@@ -40,8 +40,10 @@ def data():
 @app.route('/view-homework')
 def view_homework():
     data = []
+
     with open('homework_data.csv', mode='r') as file:
-        reader = csv.reader(file)
+        reader = csv.reader(file)        
+        next(file)
         for row in reader:
             data.append(row)
     return render_template('view_homework.html', homework = data)
