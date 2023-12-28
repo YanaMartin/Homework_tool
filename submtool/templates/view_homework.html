@@ -6,32 +6,29 @@
     <title>CSV data</title>
 </head>
 <body>
-    <div class="boxout-table">
-        <h1>submitted homework</h1>
-            <table class = "table">
-                <thead>
-                    <tr>
-                        <th>name</th>
-                        <th>#</th>
-                        <th>colab URL</th>
-                        <th>comments</th>
-                        <th>timestamp</th>
-                        <th>checked by</th>
-                    </tr>
-                    {% for row in homework %}
-                    <tr>
-                        <td>{{ row[0] }}</td>
-                        <td>{{ row[1] }}</td>
-                        <td>{{ row[2] }}</td>
-                        <td>{{ row[3] }}</td>
-                        <td>{{ row[4] }}</td>
-                        <td><div><input id = "checked" type = "text" name = "checked" /></div></td>
-                    </tr>
-                    {% endfor %}
-                </thead>
-            </table>
-    
-        
-    </div>
+    <table>
+        <caption>submitted homeworks</caption>
+        <thead>
+            <tr>
+                <th scope = col>name</th>
+                <th scope = col>#</th>
+                <th scope = col>colab URL</th>
+                <th scope = col>comments</th>
+                <th scope = col>timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in homework %}
+            <tr>                        
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td><a href = "{{row[2]}}">{{row[2]}}</a></td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+            {% endfor %}
+            </tr> 
+        </tbody>             
+    </table>    
+    <div class = "copyrightcsv">&copy; 2023 Daniela Limbeck, Yana Martin</div>
 </body>
 </html>

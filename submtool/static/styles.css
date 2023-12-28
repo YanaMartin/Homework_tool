@@ -1,12 +1,12 @@
 body {
   background: #747474;
-  font-family: "Roboto", Arial, sans-serif;
+  font-family: courier, monospace;
   font-size: 1.1em;
   line-height: 1.8em;
   font-weight: normal;
   color: #5e5d5d;
-  max-width: 60em;
   margin: 1em auto; 
+  width: 60em;
 }
 
 h1{
@@ -18,14 +18,8 @@ img {
   width: 10em;
 }
 
-.table {
-  width: 80%;
-  font-size: 0.8em;
-  font-family: sans-serif;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  border-radius: 5px;
+a {
   color: #5e5d5d;
-  background-color: #ffffff;
 }
 
 .boxout {
@@ -33,7 +27,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #e7e1e1;
+  background-color: #e2e2e2;
   margin: 2.5em 7em;
   padding: 0.5em; 
   border-radius: 0.2em;
@@ -44,9 +38,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #e7e1e1;
-  margin: 2em 7em;
-  padding: 0.4em; 
+  padding: 0.5em; 
   border-radius: 0.2em;
   flex-direction: column;  
 }
@@ -56,31 +48,60 @@ img {
   float: right;
 }
 
-.table thead tr {
+table {
+  min-width: 100%;
+  font-size: 0.8em;
+  font-family: courier, monospace;
+  box-shadow: 0 0 20px #5e5d5d;
+  border-radius: 0.2em;
+  color: #5e5d5d;
+  background-color: #f5f5f5;
+  border: 0.1em solid #dedede;
+  border-spacing: 0em;
+  margin-top: 2em; 
+
+}
+
+table caption { 
+	caption-side: top; 
+	margin-top: 1em; 
+  font-size: 2em;
+	color: #f5f5f5;
+  text-transform: uppercase;
+	font-weight: 00;
+  margin: 1.5em;
+}
+
+table thead tr {
   text-align: left;
 }
 
-.table th {
-  padding: 12px 15px;
+table thead th {
+  padding: 1.5em 1em;
   vertical-align: top;
-  border-bottom: 1px solid #5e5d5d;
+  border-bottom: 0.2em double #ffaa9f;
+  border-left: 0.1em dotted #929191;
 }
 
-.table td {
-  padding: 12px 15px;
+table tbody td {
+  padding: 1em 1em;
   vertical-align: top;
+  border-bottom: 0.1em dotted #929191;
+  border-left: 0.1em dotted #929191;
 }
 
-.table tbody tr {
-  border-bottom: 1px solid #fa143c;
+table tbody tr:last-of-type {
+  border-bottom: none !important;
 }
 
-.table tbody tr:nth-of-type(even) {
-  background-color: #bcbcbc;
+table tbody td:first-of-type {
+  border-left: none !important;
+  padding: 1em 1em 1em 1.5em;
 }
 
-.table tbody tr:last-of-type {
-  border-bottom: 2px solid #ffffff;
+table thead th:first-of-type {
+  border-left: none !important;
+  padding: 1.5em 1em 1em 1.5em;
 }
 
 .boxcol #button {
@@ -89,9 +110,22 @@ img {
   height: 2.5em;
   border-radius: 0.2em;
   border: 0.2em; 
-  color: #e7e1e1;
+  color: #e2e2e2;
   margin: 0.8em 0em;
   font-size: inherit;
+  font-family: courier, monospace;
+}
+
+.copyright {
+  color: #e2e2e2;
+  text-align: right;
+  margin: 0em 7em;
+}
+
+.copyrightcsv {
+  color: #e2e2e2;
+  text-align: right;
+  margin: 0em 7em;
 }
 
 .boxcol #input {
@@ -137,35 +171,35 @@ textarea:focus {
   body {
     align-items: center;
     font-size: 1.8em;
+    display: flex;
+    flex-direction: column; 
   }
 
   .boxout {
+    width: 90%;
     flex-direction: column-reverse; 
     clear: none;
-    justify-content: center;
-    align-items: center;
-    margin: 1em;
-    padding: 0.3em; 
+    margin: 2.5em;
     border-radius: 0.2em;
   }
 
   .boxcol {
-    max-width: 100%;
+    width: 90%;
     display: flex;
     margin: 0em;
     padding: 0em;
   }
 
   .boxcol #input {
-    width: 28em;
+    width: 35em;
     height: 2em;    
     font-family: inherit;
     font-size: inherit; 
   }
 
   .boxcol #textarea {
-    width: 28em;
-    max-width: 28em;
+    width: 35em;
+    max-width: 35em;
     height: 5em;
     margin: 0em;    
     font-family:inherit;

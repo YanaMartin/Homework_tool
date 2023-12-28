@@ -21,7 +21,7 @@ def write_to_csv(data):
 def hello():
     return render_template('form.html')
 
-@app.route('/data', methods = ['POST', 'GET'])
+@app.route('/done', methods = ['POST', 'GET'])
 def data():
     if request.method == 'GET':
         return render_template('form.html')
@@ -33,24 +33,26 @@ def data():
         comments = request.form['comments']
         data = [name, lesson_number, colab_url, comments]
         write_to_csv(data)
-        return render_template('data.html', data = formdata)
+        return render_template('done.html', data = formdata)
         
 #Page to view all submitted homework data from CSV
     
-@app.route('/view-homework')
+@app.route('/view-homework', methods = ['POST', 'GET'])
 def view_homework():
-    data = []
-
-    with open('homework_data.csv', mode='r') as file:
-        reader = csv.reader(file)        
-        next(file)
-        for row in reader:
-            data.append(row)
-    return render_template('view_homework.html', homework = data)
+    if request.method == 'GET':
+        data = []
+        with open('homework_data.csv', mode='r') as file:
+            reader = csv.reader(file)        
+            next(file)
+            for row in reader:
+                data.append(row)
+            return render_template('view_homework.html', homework = data)
+        
 
 if __name__ == "__main__":
     app.run()
 
 
+    
     
     
