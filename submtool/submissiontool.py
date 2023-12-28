@@ -31,6 +31,7 @@ def data():
         lesson_number = request.form['lesson_number']
         colab_url = request.form['colab_url']
         comments = request.form['comments']
+        
         data = [name, lesson_number, colab_url, comments]
         write_to_csv(data)
         return render_template('data.html', data = formdata)
