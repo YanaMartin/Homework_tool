@@ -1,6 +1,2 @@
 name,lesson,url,comment,timestamp,checked
-jakob,7,https://derstandard.at,hallohallo,2023-12-27 21:08:22
-dani,3,https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col?retiredLocale=de,"In your case, you are trying to initialise the survey object outside any root function. That line will be invoked when the app server is started, before any request has been reserved, and hence flask is throwing an error saying that you are invoking it outside of request context.",2023-12-28 01:03:42
-dani,3,https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col?retiredLocale=de,"In your case, you are trying to initialise the survey object outside any root function. That line will be invoked when the app server is started, before any request has been reserved, and hence flask is throwing an error saying that you are invoking it outside of request context.",2023-12-28 01:03:43
-dani,3,https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col?retiredLocale=de,"In your case, you are trying to initialise the survey object outside any root function. That line will be invoked when the app server is started, before any request has been reserved, and hence flask is throwing an error saying that you are invoking it outside of request context.",2023-12-28 01:04:31
-dani,djgsöj,nasgsdn,dnglkg,2023-12-28 01:18:04
+jakob,7,https://derstandard.at,hallohallo,2023-12-27 21:08:22dani,3,flj#fdh#pgkhï¿½d,dfkdlsh djgj<se jdgojwï¿½,2023-12-28 20:08:53
