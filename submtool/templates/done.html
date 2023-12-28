@@ -3,19 +3,16 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}">
-    <link rel="icon" type="image/x-icon" href= "{{ url_for('static',filename='who.ico.png') }}">
-    <title>thanks!</title>
+    <title>data</title>
 
   </head>
   <body>
     <div class="boxout" id="wrapper">
       <div class="boxcol">
         <h1>done!</h1>
-        <p>dear {{ data['name'] }}, thanks for submitting your homework from lesson number {{ data['lesson_number'] }}!</p>
+        <p>dear {{ data['name'] }}, thanks for submitting your homework from lesson {{ data['lesson_number'] }}!</p>
       </div>
     <div class="boxcol"><img src="{{ url_for('static',filename='who.png') }}" /></div>
     </div>
-    <div class = "copyright">&copy; 2023 Daniela Limbeck, Yana Martin</div>
-
   </body>
 </html>
