@@ -1,12 +1,12 @@
 body {
   background: #747474;
-  font-family: courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
   font-size: 1.1em;
   line-height: 1.8em;
   font-weight: normal;
   color: #5e5d5d;
+  max-width: 60em;
   margin: 1em auto; 
-  width: 60em;
 }
 
 h1{
@@ -28,8 +28,8 @@ a {
   justify-content: center;
   align-items: center;
   background-color: #e2e2e2;
-  margin: 2.5em 7em;
-  padding: 0.5em; 
+  margin: 2em 7em;
+  padding: 0.4em; 
   border-radius: 0.2em;
 }
 
@@ -44,7 +44,8 @@ a {
 }
 
 .boxcol {
-  margin: 0.9em 2.5em;
+  margin: 0.7em 3em;
+  max-width: 27rem;
   float: right;
 }
 
@@ -139,7 +140,6 @@ table thead th:first-of-type {
 }
 
 .boxcol #textarea {
-  max-width: 20.5em;
   width: 20.5em;
   height: 5em;
   margin: 0em 1em 0.5em 0em;
@@ -167,41 +167,51 @@ textarea:focus {
   font-style: italic;
 }
 
-@media (max-width: 70em) { 
+@media (max-width: 40em) { 
   body {
     align-items: center;
-    font-size: 1.8em;
-    display: flex;
-    flex-direction: column; 
+    font-size: 1em;
   }
 
   .boxout {
-    width: 90%;
-    flex-direction: column-reverse; 
+    flex-direction: column-reverse;  
     clear: none;
-    margin: 2.5em;
+    display: center;
+    background-color: #e2e2e2;
+    margin: 1em;
+    padding: 0em; 
     border-radius: 0.2em;
   }
 
   .boxcol {
-    width: 90%;
-    display: flex;
-    margin: 0em;
+    display: center;
+    float: right;
+    margin: 1em;
     padding: 0em;
   }
 
-  .boxcol #input {
-    width: 35em;
-    height: 2em;    
-    font-family: inherit;
-    font-size: inherit; 
+  img {
+    float: right;
+    width: 7em;
+    margin: 0em 0em 0em 0em;
   }
 
+  .boxcol #input {
+    width: 20em;
+    height: 1.8em;
+    margin: 0em 0em 1.5em 0em;
+    border-radius: 0.2em;
+    border: 0.2em; 
+    font-family: inherit;
+    font-size: inherit; 
+}
+
   .boxcol #textarea {
-    width: 35em;
-    max-width: 35em;
-    height: 5em;
-    margin: 0em;    
+    width: 20em;
+    height: 4em;
+    margin: 0em 0em 0em 0em;
+    border-radius: 0.2em;
+    border: 0.2em; 
     font-family:inherit;
     font-size: inherit;
   }
@@ -211,9 +221,15 @@ textarea:focus {
     height: 2.5em;
     border-radius: 0.2em;
     border: 0.2em; 
+    color: #e2e2e2;
     margin: 2em 0em 4em;
     font-size: inherit;
   }
-  
-}
 
+  .copyright {
+    color: #e2e2e2;
+    text-align: right;
+    margin: 1em;
+  }
+
+  }
