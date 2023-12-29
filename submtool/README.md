@@ -19,5 +19,5 @@ View Submitted Homework: Access a page to view all previously submitted homework
 in progress, 1 feature missing (check csv with name of mentor)
 
 # Credits
-Daniela Limbeck
-Yana Martin
+*Daniela Limbeck
+*Yana Martin
