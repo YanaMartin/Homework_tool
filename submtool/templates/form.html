@@ -1,49 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}">
-    <link rel="icon" type="image/x-icon" href= "{{ url_for('static',filename='who.ico.png') }}">
-    <title>homework submission - pyladies</title>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  </head>
-  <body>
-    <div class="boxout" id="wrapper">
-        <div class="boxcol">
-            <div>
-
-                <h1>Homework submission </h1>
-
-                <form autocomplete="off" action = "/done" method = "POST">
-                <div>name*</div>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}">
+        <link rel="icon" type="image/x-icon" href= "{{ url_for('static',filename='who.ico.png') }}">
+        <title>Homework submission - Pyladies</title>
+    </head>
+    <body>
+        <div class="boxout" id="wrapper">
+            <div class="boxcol">
                 <div>
-                    <input id = "input" type = "text" name = "name" placeholder = "..." required/>
+                    <h1>Homework submission </h1>
+                    <form autocomplete="off" action = "/done" method = "POST">
+                    <div>Name*</div>
+                    <div>
+                        <input id = "input" type = "text" name = "name" maxlength = 30 placeholder = "..." required/>
+                    </div>
+                    <div>Lesson number*</div>
+                    <div>
+                        <input id = "input" type = "number" min ="1" name="lesson_number" placeholder = "..." required/>
+                    </div>
+                    <div>Colab URL*</div>
+                    <div>
+                        <input id = "input" type = "url" name="colab_url" placeholder = "..." required/>
+                    </div>
+                    <div>Comment</div>
+                    <div>
+                        <textarea id = "textarea" name="comments" maxlength = 200></textarea>
+                    </div>
+                    <div>
+                        <input id = "button" type = "submit" value = "Submit" />
+                    </div>
+                    </form>
                 </div>
-                <div>Lesson number*</div>
-                <div>
-                    <input id = "input" type = "number" name="lesson_number" placeholder = "..." required/>
-                </div>
-                <div>Colab URL*</div>
-                <div>
-                    <input id = "input" type = "text" name="colab_url" placeholder = "..." required/>
-                </div>
-                <div>Comment</div>
-                <div>
-                    <textarea id = "textarea" name="comments"></textarea>
-                </div>
-                <div>
-                    <input id = "button" type = "submit" value = "Submit" />
-                </div>
-
-                </form>
             </div>
+            <div class="boxcol"><img src="{{ url_for('static',filename='who.png') }}" /></div>
         </div>
-        <div class="boxcol"><img src="{{ url_for('static',filename='who.png') }}" /></div>
-    </div>
-    <div class = "copyright">&copy; 2023 Daniela Limbeck, Yana Martin</div>
-
+        <div class = "copyright">&copy; 2023 Daniela Limbeck, Yana Martin</div>
     </body>
-
-</html>
+    </html>

@@ -1,13 +1,12 @@
-from flask import Flask, flash, redirect, render_template, request, session, abort
+from flask import Flask, render_template, request
 import os
 import csv
 from datetime import datetime
 
 app = Flask(__name__)
 
-#Function to write data to a CSV file with timestamp
-
 def write_to_csv(data):
+    """Function to write data to a CSV file with timestamp"""
     now = datetime.now()
     timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
     data_with_timestamp = data + [timestamp]
@@ -15,7 +14,6 @@ def write_to_csv(data):
         writer = csv.writer(file)
         writer.writerow(data_with_timestamp)
     file.close()
-
 
 @app.route("/submtool")
 def hello():
@@ -35,11 +33,10 @@ def data():
         data = [name, lesson_number, colab_url, comments]
         write_to_csv(data)
         return render_template('done.html', data = formdata)
-        
-#Page to view all submitted homework data from CSV
-    
+            
 @app.route('/view-homework', methods = ['POST', 'GET'])
 def view_homework():
+    """Page to view all submitted homework data from CSV"""
     if request.method == 'GET':
         data = []
         with open('homework_data.csv', mode='r') as file:

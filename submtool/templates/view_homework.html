@@ -8,19 +8,19 @@
 </head>
 <body>
     <table>
-        <caption>submitted homeworks</caption>
+        <caption>Submitted homeworks</caption>
         <thead>
             <tr>
-                <th scope = col>name</th>
+                <th scope = col>Name</th>
                 <th scope = col>#</th>
-                <th scope = col>colab URL</th>
-                <th scope = col>comments</th>
-                <th scope = col>timestamp</th>
+                <th scope = col>Colab URL</th>
+                <th scope = col>Comments</th>
+                <th scope = col>Timestamp</th>
             </tr>
         </thead>
         <tbody>
             {% for row in homework %}
-            <tr>                        
+            <tr scope = row>                        
                 <td>{{ row[0] }}</td>
                 <td>{{ row[1] }}</td>
                 <td><a href = "{{row[2]}}">{{row[2]}}</a></td>
