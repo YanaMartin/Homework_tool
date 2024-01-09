@@ -38,19 +38,22 @@ def data():
 def view_homework():
     """Page to view all submitted homework data from CSV"""
     if request.method == 'GET':
-        data = []
-        with open('homework_data.csv', mode='r') as file:
-            reader = csv.reader(file)        
-            next(file)
-            for row in reader:
-                data.append(row)
-            return render_template('view_homework.html', homework = data)
-        
 
+        sortedcsv = []
+        with open('homework_data.csv', newline='') as filein:
+            reader = csv.reader(filein)
+            sortedcsv.append(next(reader))
+            sortedcsv.extend(sorted(reader, key=lambda row: int(row[1])))
+    
+        data = []
+        for row in sortedcsv[1:]:
+            data.append(row)                
+        return render_template('view_homework.html', homework = data)  
+    
+#def submit checked and mentor name (?)
+     
 if __name__ == "__main__":
     app.run()
 
-
-    
     
     
