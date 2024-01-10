@@ -9,7 +9,7 @@ def write_to_csv(data):
     """Function to write data to a CSV file with timestamp"""
     now = datetime.now()
     timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
-    data_with_timestamp = data + [timestamp]
+    data_with_timestamp = data[0:4] + [timestamp] + data[4:]
     with open('homework_data.csv', mode='a', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(data_with_timestamp)
@@ -25,12 +25,13 @@ def data():
         return render_template('form.html')
     if request.method == 'POST':
         formdata = request.form
-        name = request.form['name']
-        lesson_number = request.form['lesson_number']
-        colab_url = request.form['colab_url']
-        comments = request.form['comments']
-        
-        data = [name, lesson_number, colab_url, comments]
+        name = request.form["name"]
+        lesson_number = request.form["lesson_number"]
+        colab_url = request.form["colab_url"]
+        comments = request.form["comments"]
+        checked = request.form["checked"]
+        mentorname = request.form["mentorname"]
+        data = [name, lesson_number, colab_url, comments, checked, mentorname]
         write_to_csv(data)
         return render_template('done.html', data = formdata)
             
@@ -50,10 +51,29 @@ def view_homework():
             data.append(row)                
         return render_template('view_homework.html', homework = data)  
     
+    '''
+
+    if request.method == 'POST':
+        newdata = request.form["mentorname"]
+
+        newcsv = []
+        with open('homework_data.csv', newline='') as filein:
+            reader = csv.reader(filein)
+            newcsv.append(next(reader))
+            
+        with open('homework_data.csv', mode='a', newline='') as file:
+            for row in newcsv[1:]:
+                alldata = row + [newdata]       
+                writer = csv.writer(file)
+                writer.writerow(alldata)
+    
+        data = []
+        for row in newcsv[1:]:
+            data.append(row)                
+        return render_template('view_homework.html', homework = data)
+    
 #def submit checked and mentor name (?)
+'''
      
 if __name__ == "__main__":
     app.run()
-
-    
-    

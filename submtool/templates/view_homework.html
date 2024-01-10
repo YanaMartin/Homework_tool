@@ -16,6 +16,8 @@
                 <th scope = col>Colab URL</th>
                 <th scope = col>Comments</th>
                 <th scope = col>Timestamp</th>
+                <th scope = col>checked</th>
+                <th scope = col>Mentor name</th>
             </tr>
         </thead>
         <tbody>
@@ -26,10 +28,19 @@
                 <td><a href = "{{row[2]}}">{{row[2]}}</a></td>
                 <td>{{ row[3] }}</td>
                 <td>{{ row[4] }}</td>
+            <form autocomplete="off" action = "/view-homework" method = "POST">
+                <td><input id ="checkbox" type="checkbox" {{ row[5] }} /></td>
+                {% if row[6] == '' %}
+                <td><input id = "input" type = "text" name = "mentorname" maxlength = 30 /></td>
+                {% else %}
+                <td>{{ row[6] }}</td>
+                {% endif %}
             {% endfor %}
             </tr> 
-        </tbody>             
-    </table>    
-    <div class = "copyrightcsv">&copy; 2023 Daniela Limbeck, Yana Martin</div>
+        </tbody>                     
+    </table> 
+    <input id = "button" type = "submit" value = "Submit" />     
+    </form> 
+<div class = "copyrightcsv">&copy; 2023 Daniela Limbeck, Yana Martin</div>
 </body>
 </html>
