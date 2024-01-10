@@ -45,7 +45,12 @@ def view_homework():
             reader = csv.reader(filein)
             sortedcsv.append(next(reader))
             sortedcsv.extend(sorted(reader, key=lambda row: int(row[1])))
-    
+
+        with open('homework_data.csv', mode='w', newline='') as filein:
+            writer = csv.writer(filein)
+            for row in sortedcsv:
+                writer.writerow(row)
+
         data = []
         for row in sortedcsv[1:]:
             data.append(row)                
