@@ -51,29 +51,44 @@ def view_homework():
             data.append(row)                
         return render_template('view_homework.html', homework = data)  
     
-    '''
-
     if request.method == 'POST':
-        newdata = request.form["mentorname"]
+        mentors = []
+        for mentorname in request.form.getlist('mentorname'):
+            mentors.append(mentorname)
+            print(mentors)
 
         newcsv = []
         with open('homework_data.csv', newline='') as filein:
             reader = csv.reader(filein)
-            newcsv.append(next(reader))
-            
+            header = next(reader)
+            newcsv.extend(reader)
+
+        with open('homework_data.csv', mode='w', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow(header)
+        
         with open('homework_data.csv', mode='a', newline='') as file:
-            for row in newcsv[1:]:
-                alldata = row + [newdata]       
-                writer = csv.writer(file)
-                writer.writerow(alldata)
+            writer = csv.writer(file)
+            i = 0
+            for row in newcsv:
+                newdata = mentors[i]
+                row = row[0:6] + [newdata]
+                i += 1
+                writer.writerow(row)
+
+        sortedcsv = []
+        with open('homework_data.csv', newline='') as filein:
+            reader = csv.reader(filein)
+            sortedcsv.append(next(reader))
+            sortedcsv.extend(sorted(reader, key=lambda row: int(row[1])))
     
         data = []
-        for row in newcsv[1:]:
+        for row in sortedcsv[1:]:
             data.append(row)                
         return render_template('view_homework.html', homework = data)
-    
+
+        
 #def submit checked and mentor name (?)
-'''
      
 if __name__ == "__main__":
     app.run()

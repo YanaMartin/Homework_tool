@@ -29,7 +29,7 @@
                 <td>{{ row[3] }}</td>
                 <td>{{ row[4] }}</td>
             <form autocomplete="off" action = "/view-homework" method = "POST">
-                <td><input id ="checkbox" type="checkbox" {{ row[5] }} /></td>
+                <td><input id ="checkbox" type="checkbox" name = "checked" {{ row[5] }} /></td>
                 {% if row[6] == '' %}
                 <td><input id = "input" type = "text" name = "mentorname" maxlength = 30 /></td>
                 {% else %}
