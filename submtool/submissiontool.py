@@ -56,11 +56,17 @@ def view_homework():
             data.append(row)                
         return render_template('view_homework.html', homework = data)  
     
-    if request.method == 'POST':
+    if request.method == 'POST':           
+
         mentors = []
-        for mentorname in request.form.getlist('mentorname'):
+        for mentorname in request.form.getlist("mentorname"):
             mentors.append(mentorname)
-            print(mentors)
+        print(mentors)
+        
+        checked = []
+        for checkbox in request.form.getlist("checked"):
+            checked.append(checkbox)
+        print(checked)
 
         newcsv = []
         with open('homework_data.csv', newline='') as filein:
@@ -76,8 +82,9 @@ def view_homework():
             writer = csv.writer(file)
             i = 0
             for row in newcsv:
+                checkdata = checked[i]
                 newdata = mentors[i]
-                row = row[0:6] + [newdata]
+                row = row[0:5] + [checkdata] + [newdata]
                 i += 1
                 writer.writerow(row)
 
