@@ -20,7 +20,7 @@
                     <div>
                         <input id = "input" type = "number" min ="1" name="lesson_number" placeholder = "..." required/>
                     </div>
-                    <div>Colab URL*</div>
+                    <div>Colab or GitHub URL*</div>
                     <div>
                         <input id = "input" type = "url" name="colab_url" placeholder = "..." required/>
                     </div>
@@ -29,6 +29,9 @@
                         <textarea id = "textarea" name="comments" maxlength = 200></textarea>
                     </div>
                     <div>
+                    <div class="small-black-font">
+                        Please check that your Colab notebook has permissions set correctly: "Anyone with link can Edit".
+                    </div>
                         <input id = "button" type = "submit" value = "Submit" />
                     </div>
                     <input type = "hidden" name="checked" value=""/>
