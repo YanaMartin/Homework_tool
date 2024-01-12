@@ -9,6 +9,12 @@ body {
   margin: 1em auto; 
 }
 
+.small-black-font {
+  font-size: 0.9em;
+  color: black;
+  letter-spacing: -1px;
+}
+
 h1{
   text-transform: uppercase;
   border-bottom: 0.03em solid #fa143c;
@@ -278,4 +284,5 @@ textarea:focus {
     text-align: right;
     margin: 1em;
   }
+
 }
