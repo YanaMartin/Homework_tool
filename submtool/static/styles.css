@@ -113,9 +113,14 @@ table #input{
   font-size: inherit; 
 }
 
-table #checkbox{
-  accent-color: #ffaa9f;
+table #status{
+  border-radius: 0.1em;
+  border: 0.1em; 
   box-shadow: 0 0 0em;
+  font-family: inherit;
+  font-size: inherit;
+  color: #5e5d5d;
+  background-color: #f5f5f5; 
 }
 
 table #input:focus { 

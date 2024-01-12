@@ -52,13 +52,24 @@ def view_homework():
                 writer.writerow(row)
 
         data = []
+        i = 0
+        nums = []
+
         for row in sortedcsv[1:]:
-            data.append(row)                
-        return render_template('view_homework.html', homework = data)  
+            data.append(row)   
+            nums.append(i)
+            i =+ 1
+        return render_template('view_homework.html', homework = data, i = nums)  
     
-    if request.method == 'POST':
+    if request.method == 'POST':        
+               
+        stati = []
+        for status in request.form.getlist("status"):
+            stati.append(status)
+            print(stati)
+
         mentors = []
-        for mentorname in request.form.getlist('mentorname'):
+        for mentorname in request.form.getlist("mentorname"):
             mentors.append(mentorname)
             print(mentors)
 
@@ -76,8 +87,9 @@ def view_homework():
             writer = csv.writer(file)
             i = 0
             for row in newcsv:
+                status = stati[i]
                 newdata = mentors[i]
-                row = row[0:6] + [newdata]
+                row = row[0:5] + [status] + [newdata]
                 i += 1
                 writer.writerow(row)
 
@@ -92,8 +104,5 @@ def view_homework():
             data.append(row)                
         return render_template('view_homework.html', homework = data)
 
-        
-#def submit checked and mentor name (?)
-     
 if __name__ == "__main__":
     app.run()
