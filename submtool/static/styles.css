@@ -9,10 +9,11 @@ body {
   margin: 1em auto; 
 }
 
-.small-black-font {
-  font-size: 0.9em;
-  color: black;
-  letter-spacing: -1px;
+.small {
+  font-size: 0.8em;
+  line-height: 1.4em;
+  max-width: 26em;
+  color: #5e5d5d;
 }
 
 h1{
@@ -193,12 +194,6 @@ table #input:focus {
   border: 0.2em; 
   font-family:inherit;
   font-size: inherit;
-}
-
-.boxcol #small {
-  font-size: 0.8em;
-  line-height: 1.4em;
-  max-width: 26em;
 }
 
 input:focus { 
