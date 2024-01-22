@@ -135,6 +135,11 @@ table #input:focus {
   box-shadow: 0 0 0.2em #ffaa9f;
 }
 
+.url-column {
+  max-width: 500px;
+  overflow: hidden;
+}
+
 #button {
   background: #f5f5f5;
   width: 6em;
