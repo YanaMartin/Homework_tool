@@ -10,9 +10,10 @@ body {
 }
 
 .small-black-font {
-  font-size: 0.9em;
-  color: black;
-  letter-spacing: -1px;
+  font-size: 0.8em;
+  line-height: 1.4em;
+  max-width: 26em;
+  color: #5e5d5d;
 }
 
 h1{
