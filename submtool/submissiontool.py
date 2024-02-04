@@ -4,9 +4,14 @@ import csv
 import glob
 import time
 import shutil
+import json
 from datetime import datetime
+from flask import Flask
+from flask_httpauth import HTTPBasicAuth
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
+auth = HTTPBasicAuth()
 
 '''
 def backup():
@@ -36,6 +41,16 @@ def write_to_csv(data):
         writer.writerow(data_with_timestamp)
     file.close()
 
+@auth.verify_password
+def verify_password(username, password):
+    file = open("credentials.js")
+    creds = json.load(file)
+    if username in creds:
+        password = creds[username]
+        check_password_hash(creds.get(username), password)
+        return username, password
+    file.close()
+
 @app.route("/submtool")
 def hello():
     #backup()
@@ -58,6 +73,7 @@ def data():
         return render_template('done.html', data = formdata)
             
 @app.route('/view-homework', methods = ['POST', 'GET'])
+@auth.login_required
 def view_homework():
     """Page to view all submitted homework data from CSV"""
 
