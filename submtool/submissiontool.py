@@ -9,7 +9,11 @@ def write_to_csv(data):
     """Function to write data to a CSV file with timestamp"""
     now = datetime.now()
     timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
-    data_with_timestamp = data[0:4] + [timestamp] + data[4:]
+    with open('homework_data.csv', newline='') as file:
+        reader = csv.reader(file)
+        rownum = int(sum(1 for row in reader))
+    data_with_timestamp = data[0:4] + [timestamp] + data[4:] + [rownum]
+    
     with open('homework_data.csv', mode='a', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(data_with_timestamp)
@@ -38,8 +42,15 @@ def data():
 @app.route('/view-homework', methods = ['POST', 'GET'])
 def view_homework():
     """Page to view all submitted homework data from CSV"""
-    if request.method == 'GET':
 
+    row_id = []
+    with open('homework_data.csv', newline='') as filein:
+            reader = csv.reader(filein)
+            next(reader)
+            for row in reader:
+                row_id.append(row[7])
+
+    if request.method == 'GET':
         sortedcsv = []
         with open('homework_data.csv', newline='') as filein:
             reader = csv.reader(filein)
@@ -53,25 +64,21 @@ def view_homework():
 
         data = []
         i = 0
-        nums = []
 
         for row in sortedcsv[1:]:
             data.append(row)   
-            nums.append(i)
-            i =+ 1
-        return render_template('view_homework.html', homework = data, i = nums)  
+        
+        return render_template('view_homework.html', homework = data)  
     
     if request.method == 'POST':        
                
         stati = []
         for status in request.form.getlist("status"):
             stati.append(status)
-            print(stati)
 
         mentors = []
         for mentorname in request.form.getlist("mentorname"):
             mentors.append(mentorname)
-            print(mentors)
 
         newcsv = []
         with open('homework_data.csv', newline='') as filein:
@@ -89,9 +96,13 @@ def view_homework():
             for row in newcsv:
                 status = stati[i]
                 newdata = mentors[i]
-                row = row[0:5] + [status] + [newdata]
+                if row_id[i] == row[7]:
+                    row = row[0:5] + [status] + [newdata] + [row[7]]
+                else:
+                    row = row
                 i += 1
                 writer.writerow(row)
+               
 
         sortedcsv = []
         with open('homework_data.csv', newline='') as filein:
