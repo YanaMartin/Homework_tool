@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}">
+        <link rel="icon" type="image/x-icon" href= "{{ url_for('static',filename='check.png') }}">
+        <title>Check Homeworks</title>
+    </head>
+    <body>
+        <div class="boxout" id="wrapper">
+            <div class="boxcol">
+                <div>
+                    <h1>Names </h1>
+                    <form autocomplete="off" action = "/missing" method = "POST">
+                        <select id = "name" name = "name" width=300 style="width: 350px" size="8" multiple>
+                            {% for row in homework %}
+                            <option value='{{ row[0] }}'>{{ row[0] }}</option>
+                            {% endfor %}
+                        </select>
+                        <input id = "button" type = "submit" value = "Submit">
+                        <br/>
+                        <br/>
+                        <br/>
+                        <p>Submitted Homeworks: {% for num in nums %}{{ num }}, {% endfor %}</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class = "copyright">&copy; 2023 Daniela Limbeck, Yana Martin</div>
+    </body>
+</html>

@@ -137,7 +137,6 @@ def view_homework():
                 i += 1
                 writer.writerow(row)
                
-
         sortedcsv = []
         with open('homework_data.csv', newline='') as filein:
             reader = csv.reader(filein)
@@ -148,6 +147,50 @@ def view_homework():
         for row in sortedcsv[1:]:
             data.append(row)                
         return render_template('view_homework.html', homework = data)
+    
+    
+@app.route("/missing", methods = ['POST', 'GET'])
+@auth.login_required
+def missing():
+    """Page to check missing homeworks"""
 
+    if request.method == 'GET':
+        with open('homework_data.csv', newline='') as filein:
+            reader = csv.reader(filein)
+            next(reader)
+            data = []
+            for row in reader:
+                data.append(row)
+                sortcsv = sorted(data)        
+            return render_template('missing.html', homework = sortcsv) 
+
+    if request.method == 'POST':        
+        names = []
+        for name in request.form.getlist("name"):
+            names.append(name) 
+            names = list(set(names)) 
+        print(names)
+
+        with open('homework_data.csv', newline='') as filein:
+            reader = csv.reader(filein)
+            next(reader)
+            nums = []
+            for row in reader:
+                if row[0] in names:
+                    nums.append(row[1])
+                    nums = list(set(nums)) 
+ 
+            print(nums)
+
+        with open('homework_data.csv', newline='') as filein:
+            reader = csv.reader(filein)
+            next(reader)
+            data = []
+            for row in reader:
+                data.append(row)
+                sortcsv = sorted(data)
+        return render_template('missing.html', homework = sortcsv, nums = nums) 
+    
+    
 if __name__ == "__main__":
     app.run()
