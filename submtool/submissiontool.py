@@ -169,7 +169,6 @@ def missing():
         for name in request.form.getlist("name"):
             names.append(name) 
             names = list(set(names)) 
-        print(names)
 
         with open('homework_data.csv', newline='') as filein:
             reader = csv.reader(filein)
@@ -178,10 +177,8 @@ def missing():
             for row in reader:
                 if row[0] in names:
                     nums.append(row[1])
-                    nums = list(set(nums)) 
- 
-            print(nums)
-
+                    nums = sorted(list(set(nums)))
+                     
         with open('homework_data.csv', newline='') as filein:
             reader = csv.reader(filein)
             next(reader)
@@ -191,6 +188,6 @@ def missing():
                 sortcsv = sorted(data)
         return render_template('missing.html', homework = sortcsv, nums = nums) 
     
-    
+
 if __name__ == "__main__":
     app.run()
