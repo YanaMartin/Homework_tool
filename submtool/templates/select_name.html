@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en" dir="ltr">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='pen.png') }}">
+
+    <title>Select Name or Lesson Number</title>    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <table>
+        <caption>Select Name or Lesson Number</caption>
+        <thead>
+            <tr>
+                <th scope="col">Filter by Name</th>
+                <th scope="col">Filter by Lesson Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>                      
+                <td>
+                    <form action="/select-name" method="POST">
+                        <select id="selected_name" name="selected_name">
+                            <option value="">Select Name</option>
+                            {% for name in names %}
+                                <option value="{{ name }}">{{ name }}</option>
+                            {% endfor %}
+                        </select>
+                        <button type="submit">Filter</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/select-name" method="POST">
+                        <select id="selected_lesson" name="selected_lesson">
+                            <option value="">Select Lesson Number</option>
+                            {% for lesson_num in lesson_numbers %}
+                                <option value="{{ lesson_num }}">{{ lesson_num }}</option>
+                            {% endfor %}
+                        </select>
+                        <button type="submit">Filter</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>                     
+    </table> 
+    <div class="copyrightcsv">&copy; 2023 Daniela Limbeck, Yana Martin</div>
+</body>
+</html>

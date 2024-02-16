@@ -286,3 +286,13 @@ textarea:focus {
   }
 
 }
+
+.button-container {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.button-container a {
+  color: #000; /* Change color as needed */
+  text-decoration: none;
+}

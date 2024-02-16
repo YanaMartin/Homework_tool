@@ -188,6 +188,49 @@ def missing():
                 sortcsv = sorted(data)
         return render_template('missing.html', homework = sortcsv, nums = nums) 
     
+    
+def get_names():
+    """Function to get a list of all names from the CSV"""
+    names = set()
+    with open('homework_data.csv', newline='') as filein:
+        reader = csv.reader(filein)
+        next(reader)  # Skip header row
+        for row in reader:
+            names.add(row[0])
+    return sorted(names)
+
+def get_lesson_numbers():
+    """Function to get a list of all lesson numbers from the CSV"""
+    lesson_numbers = set()
+    with open('homework_data.csv', newline='') as filein:
+        reader = csv.reader(filein)
+        next(reader)  # Skip header row
+        for row in reader:
+            lesson_numbers.add(row[1])
+    return sorted(lesson_numbers)
+
+@app.route('/select-name', methods=['GET', 'POST'])
+def select_name():
+    if request.method == 'GET':
+        names = get_names()
+        lesson_numbers = get_lesson_numbers()
+        return render_template('select_name.html', names=names, lesson_numbers=lesson_numbers)
+
+    if request.method == 'POST':
+        selected_name = request.form.get('selected_name')
+        selected_lesson = request.form.get('selected_lesson')
+
+        # Filter homework data based on selected name or lesson number
+        filtered_homework = []
+        with open('homework_data.csv', newline='') as filein:
+            reader = csv.reader(filein)
+            next(reader)  # Skip header row
+            for row in reader:
+                if (selected_name and row[0] == selected_name) or (selected_lesson and row[1] == selected_lesson):
+                    filtered_homework.append(row)
+
+        return render_template('filtered_homework.html', name=selected_name, lesson=selected_lesson, homework=filtered_homework)
+    
 
 if __name__ == "__main__":
     app.run()
