@@ -22,7 +22,7 @@ flask_httpauth
 
 ## install and usage
 
-git clone [git@gitlab.com:tuub/Homework_tool.git](https://github.com/YanaMartin/Homework_tool.git) <br/>
+git clone https://github.com/YanaMartin/Homework_tool.git <br/>
 cd Homework_tool <br/>
 cd submtool <br/>
 flask run
