@@ -1,22 +1,34 @@
 # Homework Submission Tool
-Homework Submission App with Flask
+## description
+This Flask application is designed to facilitate the submission and review workflow for the homeworks from the [Pyladies Vienna courses] (https://pyladies.at/runs/). 
+Various web interfaces allow course attendees to hand in homeworks that afterwards can be checked and reviewed by the course mentors.
 
-## Description
-This simple Flask application allows users to submit their homework details including name, lesson number, Colab URL, and optional comments. The submitted data is stored in a CSV file and can be viewed in another page within the app.
+### features
+#### Submit homework (form.html)
+Users can submit name, lesson number, Colab URL to the homework, and comments via a form, the data is stored in a CSV file. After that they are redirected to a "done" page.
 
-### Features
-Submit Homework: Users can input their name, lesson number, Colab URL, and comments through a form.
-Thank You Page: Upon submission, users are redirected to a "Thank You" page.
-View Submitted Homework: Access a page to view all previously submitted homework data in a tabular format.
+#### View submitted homeworks (view_homework.html): 
+Page with authentication where mentors have an overview over the submitted homeworks in a tabular format. They can mark a homework as done and add the reviewers name.
 
-## Technologies
-...
+#### check missing homeworks (missing.html)
+see submitted homeworks per user, select from list
 
-## Installation
-...
+## technologies
+html/css
+python
 
-## Status
-in progress, 1 feature missing (check csv with name of mentor)
+flask
+flask_httpauth
+
+## install and usage
+
+git clone [git@gitlab.com:tuub/Homework_tool.git](https://github.com/YanaMartin/Homework_tool.git)
+cd Homework_tool
+cd submtool
+flask run
+
+## status
+in progress
 
 # Credits
 Daniela Limbeck
