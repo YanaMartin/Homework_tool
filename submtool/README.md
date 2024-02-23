@@ -1,6 +1,6 @@
 # Homework Submission Tool
 ## description
-This Flask application is designed to facilitate the submission and review workflow for the homeworks from the [Pyladies Vienna courses] (https://pyladies.at/runs/). 
+This Flask application is designed to facilitate the submission and review workflow for the homeworks from the [Pyladies Vienna courses](https://pyladies.at/runs/). 
 Various web interfaces allow course attendees to hand in homeworks that afterwards can be checked and reviewed by the course mentors.
 
 ### features
