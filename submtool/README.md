@@ -7,7 +7,7 @@ Various web interfaces allow course attendees to hand in homeworks that afterwar
 * Submit homework (form.html)
 Users can submit name, lesson number, Colab URL to the homework, and comments via a form, the data is stored in a CSV file. After that they are redirected to a "done" page.
 
-* View submitted homeworks (view_homework.html): 
+* View submitted homeworks (view_homework.html): <br/>
 Page with authentication where mentors have an overview over the submitted homeworks in a tabular format. They can mark a homework as done and add the reviewers name.
 
 * check missing homeworks (missing.html)
