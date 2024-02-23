@@ -30,6 +30,6 @@ flask run
 ## status
 in progress
 
-# Credits
+## credits
 Daniela Limbeck <br/>
 Yana Martin
