@@ -1,7 +1,9 @@
 import shutil
+import os 
 from datetime import datetime
 
+wd = os.getcwd()
 now = datetime.now()
 timestamp = str(now.strftime("%Y%m%d"))
 filename = "homework_" + timestamp
-shutil.copyfile('homework_data.csv', 'backups/{}.csv'.format(filename))
+shutil.copy(wd+"/homework_data.csv", wd+"/backups/{}.csv".format(filename))
