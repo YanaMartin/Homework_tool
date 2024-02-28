@@ -2,8 +2,11 @@ import shutil
 import os 
 from datetime import datetime
 
-wd = os.getcwd()
 now = datetime.now()
 timestamp = str(now.strftime("%Y%m%d"))
 filename = "homework_" + timestamp
-shutil.copy(wd+"/homework_data.csv", wd+"/backups/{}.csv".format(filename))
+abspath = os.path.abspath(__file__)
+dname = os.path.dirname(abspath)
+os.chdir(dname)
+os.makedirs('backups', exist_ok=True)
+shutil.copy("homework_data.csv", os.path.join("backups","{}.csv".format(filename)))
