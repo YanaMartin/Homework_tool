@@ -46,7 +46,6 @@ def verify_password(username, password):
     file = open("credentials.js")
     creds = json.load(file)
     if username in creds:
-        password = creds[username]
         check_password_hash(creds.get(username), password)
         return username, password
     file.close()
@@ -62,7 +61,7 @@ def data():
         return render_template('form.html')
     if request.method == 'POST':
         formdata = request.form
-        name = request.form["name"]
+        name = request.form["name"].lower()
         lesson_number = request.form["lesson_number"]
         colab_url = request.form["colab_url"]
         comments = request.form["comments"]
@@ -158,17 +157,17 @@ def missing():
         with open('homework_data.csv', newline='') as filein:
             reader = csv.reader(filein)
             next(reader)
-            data = []
+            names = []
             for row in reader:
-                data.append(row)
-                sortcsv = sorted(data)        
+                names.append(row[0])
+                sortcsv = sorted(set(names))
             return render_template('missing.html', homework = sortcsv) 
 
     if request.method == 'POST':        
         names = []
         for name in request.form.getlist("name"):
             names.append(name) 
-            names = list(set(names)) 
+            names = list(set(names))
 
         with open('homework_data.csv', newline='') as filein:
             reader = csv.reader(filein)
@@ -176,16 +175,16 @@ def missing():
             nums = []
             for row in reader:
                 if row[0] in names:
-                    nums.append(row[1])
-                    nums = sorted(list(set(nums)))
+                    nums.append(int(row[1]))
+                    nums = sorted(set(nums))
                      
         with open('homework_data.csv', newline='') as filein:
             reader = csv.reader(filein)
             next(reader)
             data = []
             for row in reader:
-                data.append(row)
-                sortcsv = sorted(data)
+                data.append(row[0])
+                sortcsv = sorted(list(set(data)))
         return render_template('missing.html', homework = sortcsv, nums = nums) 
     
     
