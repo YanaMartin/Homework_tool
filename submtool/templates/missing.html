@@ -14,7 +14,7 @@
                     <form autocomplete="off" action = "/missing" method = "POST">
                         <select id = "name" name = "name" width=300 style="width: 350px" size="8" multiple>
                             {% for row in homework %}
-                            <option value='{{ row[0] }}'>{{ row[0] }}</option>
+                            <option value='{{ row }}'>{{ row }}</option>
                             {% endfor %}
                         </select>
                         <input id = "button" type = "submit" value = "Submit">
