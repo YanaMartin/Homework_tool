@@ -193,7 +193,7 @@ def get_names():
     names = set()
     with open('homework_data.csv', newline='') as filein:
         reader = csv.reader(filein)
-        next(reader)  # Skip header row
+        next(reader)  
         for row in reader:
             names.add(row[0])
     return sorted(names)
@@ -203,13 +203,14 @@ def get_lesson_numbers():
     lesson_numbers = set()
     with open('homework_data.csv', newline='') as filein:
         reader = csv.reader(filein)
-        next(reader)  # Skip header row
+        next(reader) 
         for row in reader:
             lesson_numbers.add(row[1])
     return sorted(lesson_numbers)
 
 @app.route('/select-name', methods=['GET', 'POST'])
 def select_name():
+    """Filter homework data based on selected name or lesson number"""
     if request.method == 'GET':
         names = get_names()
         lesson_numbers = get_lesson_numbers()
@@ -219,11 +220,10 @@ def select_name():
         selected_name = request.form.get('selected_name')
         selected_lesson = request.form.get('selected_lesson')
 
-        # Filter homework data based on selected name or lesson number
         filtered_homework = []
         with open('homework_data.csv', newline='') as filein:
             reader = csv.reader(filein)
-            next(reader)  # Skip header row
+            next(reader) 
             for row in reader:
                 if (selected_name and row[0] == selected_name) or (selected_lesson and row[1] == selected_lesson):
                     filtered_homework.append(row)
