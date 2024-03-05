@@ -218,18 +218,23 @@ def select_name():
         return render_template('select_name.html', names=names, lesson_numbers=lesson_numbers)
 
     if request.method == 'POST':
-        selected_name = request.form.get('selected_name')
+        #selected_name = request.form.getlist('selected_name')
         selected_lesson = request.form.get('selected_lesson')
+
+        names = []
+        for name in request.form.getlist("selected_name"):
+            names.append(name) 
+            names = list(set(names))
 
         filtered_homework = []
         with open('homework_data.csv', newline='') as filein:
             reader = csv.reader(filein)
             next(reader) 
             for row in reader:
-                if (selected_name and row[0] == selected_name) or (selected_lesson and row[1] == selected_lesson):
+                if (row[0] in names) or (selected_lesson and row[1] == selected_lesson):
                     filtered_homework.append(row)
 
-        return render_template('filtered_homework.html', name=selected_name, lesson=selected_lesson, homework=filtered_homework)
+        return render_template('filtered_homework.html', name=names, lesson=selected_lesson, homework=filtered_homework)
     
 
 if __name__ == "__main__":

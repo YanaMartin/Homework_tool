@@ -12,7 +12,7 @@
                 <div>
                     <h1>Names </h1>
                     <form autocomplete="off" action = "/missing" method = "POST">
-                        <select id = "name" name = "name" width=300 style="width: 350px" size="8" multiple>
+                        <select id = "name" name = "name" style="width: 350px" size="8" multiple>
                             {% for row in homework %}
                             <option value='{{ row }}'>{{ row }}</option>
                             {% endfor %}
