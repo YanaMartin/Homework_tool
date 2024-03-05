@@ -210,6 +210,7 @@ def get_lesson_numbers():
     return sorted(lesson_numbers)
 
 @app.route('/select-name', methods=['GET', 'POST'])
+@auth.login_required
 def select_name():
     """Filter homework data based on selected name or lesson number"""
     if request.method == 'GET':
