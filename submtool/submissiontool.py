@@ -43,12 +43,13 @@ def write_to_csv(data):
 
 @auth.verify_password
 def verify_password(username, password):
+    
     file = open("credentials.js")
     creds = json.load(file)
-    if username in creds:
-        check_password_hash(creds.get(username), password)
-        return username, password
-    file.close()
+    print(creds)
+    if username in creds and check_password_hash(generate_password_hash(creds.get(username)), password):
+        return True
+       
 
 @app.route("/submtool")
 def hello():
