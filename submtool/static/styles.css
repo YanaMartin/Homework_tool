@@ -168,6 +168,37 @@ table #input:focus {
   font-family: courier, monospace;
 }
 
+#button_filter {
+  background: #f5f5f5;
+  width: 6em;
+  height: 2em;
+  border-radius: 0.2em;
+  border: 0.2em; 
+  margin: 1em 0em;
+  font-size: 0.9em;
+  font-family: courier, monospace;
+  color: #5e5d5d;
+  box-shadow: 0 0 0em;
+  outline: none !important;
+  text-decoration: none;
+  text-align: center; 
+  line-height: 2em;
+  float: right;
+}
+
+.boxcol #button_filter {
+  background:#fa143c;
+  width: 7em;
+  height: 2.5em;
+  border-radius: 0.2em;
+  border: 0.2em; 
+  color: #e2e2e2;
+  margin: 0.8em 0em;
+  font-size: inherit;
+  font-family: courier, monospace;
+}
+
+
 .copyright {
   color: #e2e2e2;
   text-align: right;
