@@ -10,8 +10,8 @@ Users can submit name, lesson number, Colab URL to the homework, and comments vi
 * View submitted homeworks (view_homework.html): <br/>
 Page with authentication where mentors have an overview over the submitted homeworks in a tabular format. They can mark a homework as done and add the reviewers name.
 
-* check missing homeworks (missing.html): <br/>
-see submitted homeworks per user, select from list
+* check missing homeworks (mselect_name.html): <br/>
+see submitted homeworks per user or per lesson, select from list
 
 ## technologies
 html/css <br/>

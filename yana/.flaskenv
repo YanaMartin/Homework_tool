@@ -1,2 +1,0 @@
-FLASK_APP=homework.py
-FLASK_DEBUG=1

@@ -21,7 +21,7 @@
             <tr>                      
                 <td>
                     <form action="/select-name" method="POST">
-                        <select id="selected_name" name="selected_name">
+                        <select id="selected_name" name="selected_name" style="width: 300px" size="10" multiple>
                             <option value="">Select Name</option>
                             {% for name in names %}
                                 <option value="{{ name }}">{{ name }}</option>
