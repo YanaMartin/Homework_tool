@@ -40,15 +40,10 @@
 
             <form autocomplete="off" action = "/view-homework" method = "POST">
 
-                {% if row[5] == '' %}
+                {% if row[5] != "done" %}
                 <td><select id = "status" name="status" >
                     <option value="open">open</option>
-                    <option value="done">done</option>
-                    </select>
-                </td>
-                {% elif row[5] == "open" %}
-                <td><select id = "status" name="status" >
-                    <option value="open">open</option>
+                    <option value="changes_requested">changes requested</option>
                     <option value="done">done</option>
                     </select>
                 </td>
