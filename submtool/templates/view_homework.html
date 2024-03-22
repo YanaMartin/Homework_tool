@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}">
     <link rel="icon" type="image/x-icon" href= "{{ url_for('static',filename='pen.png') }}">
 
-    <title>CSV Homeworks</title>    
+    <title>CSV Homeworks</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -31,7 +31,7 @@
         </thead>
         <tbody>
             {% for row in homework %}
-            <tr scope = row>                      
+            <tr scope = row>
                 <td>{{ row[0] }}</td>
                 <td>{{ row[1] }}</td>
                 <td class="url-column"><a href="{{row[2]}}">{{row[2]}}</a></td>
@@ -42,14 +42,14 @@
 
                 {% if row[5] != "done" %}
                 <td><select id = "status" name="status" >
-                    <option value="open">open</option>
-                    <option value="changes_requested">changes requested</option>
+                    <option value="open" {% if row[5] == "open" %} selected {% endif %}>open</option>
+                    <option value="changes_requested" {% if row[5] == "changes_requested" %} selected {% endif %}>changes requested</option>
                     <option value="done">done</option>
                     </select>
                 </td>
                 {% else %}
                 <td>done</td>
-                <input type = "hidden" name = "status" value= "done"/>                         
+                <input type = "hidden" name = "status" value= "done"/>
                 {% endif %}
 
                 {% if row[6] == '' %}
@@ -62,7 +62,7 @@
             {% endfor %}
             </tr> 
         </section>
-        </tbody>                     
+        </tbody>
     </table> 
     <div>
         <input id="button" type="submit" value="Submit" />
