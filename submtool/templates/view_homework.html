@@ -52,7 +52,7 @@
                 <input type = "hidden" name = "status" value= "done"/>
                 {% endif %}
 
-                {% if row[6] == '' %}
+                {% if row[5] != "done" %}
                 <td><input id = "input" type = "text" name = "mentorname" maxlength = 30 /></td>
                 {% else %}
                 <td>{{ row[6] }}</td>

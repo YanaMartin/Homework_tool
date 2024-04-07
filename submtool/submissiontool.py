@@ -12,20 +12,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
-
-'''
-def backup():
-    list_of_files = glob.glob('backups/*.csv')
-    latest_file = max(list_of_files, key=os.path.getctime)
-    crtime = datetime.strptime(time.ctime(os.path.getctime(latest_file)), "%a %b %d %H:%M:%S %Y")
-    local_time = datetime.strptime(time.ctime(), "%a %b %d %H:%M:%S %Y")
-    if crtime < local_time:
-        now = datetime.now()
-        timestamp = str(now.strftime("%Y%m%d"))
-        filename = "homework_" + timestamp
-        shutil.copyfile('homework_data.csv', './backups/{}.csv'.format(filename))
-'''
-         
+        
 
 def write_to_csv(data):
     """Function to write data to a CSV file with timestamp"""
@@ -53,7 +40,6 @@ def verify_password(username, password):
 
 @app.route("/submtool")
 def hello():
-    #backup()
     return render_template('form.html')
 
 @app.route('/done', methods = ['POST', 'GET'])
