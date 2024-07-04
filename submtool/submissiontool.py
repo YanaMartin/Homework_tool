@@ -75,7 +75,7 @@ def view_homework():
         with open('homework_data.csv', newline='') as filein:
             reader = csv.reader(filein)
             sortedcsv.append(next(reader))
-            sortedcsv.extend(sorted(reader, key=lambda row: int(row[1])))
+            sortedcsv.extend(sorted(reader, key=lambda row: datetime.strptime(row[4], "%Y-%m-%d %H:%M:%S"), reverse=True))
 
         with open('homework_data.csv', mode='w', newline='') as filein:
             writer = csv.writer(filein)
@@ -127,7 +127,7 @@ def view_homework():
         with open('homework_data.csv', newline='') as filein:
             reader = csv.reader(filein)
             sortedcsv.append(next(reader))
-            sortedcsv.extend(sorted(reader, key=lambda row: int(row[1])))
+            sortedcsv.extend(sorted(reader, key=lambda row: datetime.strptime(row[4], "%Y-%m-%d %H:%M:%S"), reverse=True))
     
         data = []
         for row in sortedcsv[1:]:
