@@ -91,14 +91,10 @@ def view_homework():
         return render_template('view_homework.html', homework = data)  
     
     if request.method == 'POST':        
-               
-        stati = []
-        for status in request.form.getlist("status"):
-            stati.append(status)
 
-        mentors = []
-        for mentorname in request.form.getlist("mentorname"):
-            mentors.append(mentorname)
+        id_ = int(request.form["id"])
+        status = request.form["status"]
+        mentorname = request.form["mentorname"]
 
         newcsv = []
         with open('homework_data.csv', newline='') as filein:
@@ -106,21 +102,16 @@ def view_homework():
             header = next(reader)
             newcsv.extend(reader)
 
+        newcsv[id_][5] = status
+        newcsv[id_][6] = mentorname
+
         with open('homework_data.csv', mode='w', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(header)
         
         with open('homework_data.csv', mode='a', newline='') as file:
             writer = csv.writer(file)
-            i = 0
             for row in newcsv:
-                status = stati[i]
-                newdata = mentors[i]
-                if row_id[i] == row[7]:
-                    row = row[0:5] + [status] + [newdata] + [row[7]]
-                else:
-                    row = row
-                i += 1
                 writer.writerow(row)
                
         sortedcsv = []
